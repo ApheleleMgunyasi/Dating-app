@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styling.css">
+  <title>Your Dating Response</title>
+</head>
+
+<body>
+    <script>
+  const params = new URLSearchParams(window.location.search);
+  const comment = params.get("comment");
+  const reason = params.get("reason");
+
+  const output = document.getElementById("output");
+
+  if (comment || reason) {
+    output.innerHTML = `
+      💬 Comment: "${decodeURIComponent(comment)}"<br>
+      💖 Why they believe they’re the one: "${decodeURIComponent(reason)}"
+    `;
+  } else {
+    output.innerHTML = `⚠️ No response data found.`;
+  }
+</script>
+  <h2>Your Dating Feedback</h2>
+  <div id="output"></div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const comment = params.get("comment");
+    const reason = params.get("reason");
+
+    document.getElementById("output").innerHTML = `
+      💬 Comment: "${comment}"<br>
+      💖 Why they believe they’re the one: "${reason}"
+    `;
+  </script>
+</body>
+</html>
